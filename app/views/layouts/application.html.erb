@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ComplimentsIo</title>
+    <title>Compliments IO</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <%= action_cable_meta_tag %>
 
+    <link rel="stylesheet" href="https://npmcdn.com/tachyons@4.0.0-beta.12/css/tachyons.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <script id="digits-sdk" src="https://cdn.digits.com/1/sdk.js" async></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
   </head>
 
-  <body>
+  <body class="bg-near-white">
     <%= yield %>
   </body>
 </html>
