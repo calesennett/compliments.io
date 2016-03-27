@@ -8,12 +8,13 @@
     <%= action_cable_meta_tag %>
 
     <link rel="stylesheet" href="https://npmcdn.com/tachyons@4.0.0-beta.12/css/tachyons.min.css">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
-    <script id="digits-sdk" src="https://cdn.digits.com/1/sdk.js" async></script>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
 
   <body class="bg-near-white">
     <%= yield %>
+
+    <script id="digits-sdk" src="https://cdn.digits.com/1/sdk.js" async></script>
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>
