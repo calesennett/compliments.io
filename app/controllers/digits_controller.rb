@@ -39,5 +39,12 @@ class DigitsController < ApplicationController
         phone_number: @response["phone_number"],
         digits_id:    @response["id_str"]
       )
+
+      if @user.new_record?
+        @user.update_attributes(
+          frequency:  'daily',
+          message_on: 1.day.from_now
+        )
+      end
     end
 end
