@@ -2,6 +2,7 @@ runtime "ruby"
 
 gem "pg"
 gem "activerecord"
+gem "twilio-ruby"
 
 exec "message_scheduler.rb"
 
