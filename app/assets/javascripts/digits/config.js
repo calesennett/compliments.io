@@ -1,12 +1,14 @@
 (function () {
   $('#digits-sdk').load(function () {
-    Digits.init({ consumerKey: 'Jbn2aZGaiEUmyqkl8pwNHDsuE' });
-    $('#login').click(onLoginButtonClick);
+    Digits.init({ consumerKey: 'Jbn2aZGaiEUmyqkl8pwNHDsuE' })
+      .done(function() {
+        $('#login').on('click', onLoginButtonClick);
+      });
   });
 
   function onLoginButtonClick(event) {
-    event.preventDefault();
     Digits.logIn().done(onLogin).fail(onLoginFailure);
+    return false;
   }
 
   function onLogin(loginResponse) {
