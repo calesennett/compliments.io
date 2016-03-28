@@ -1,0 +1,10 @@
+runtime "ruby"
+
+gem "pg"
+gem "activerecord"
+
+exec "message_scheduler.rb"
+
+dir '../../../app/models/'
+
+full_remote_build true
