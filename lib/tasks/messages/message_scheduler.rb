@@ -16,11 +16,14 @@ end
 def send_message(user)
   random_compliment
 
-  @client.account.messages.create({
+  if @client.account.messages.create({
     from: '+13093788268',
     to: user.phone_number,
     body: @compliment.body
   })
+    user.message_on += 1.day
+    user.save!
+  end
 end
 
 def random_compliment
