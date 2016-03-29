@@ -1,7 +1,3 @@
-setup_database
-setup_twilio
-send_messages
-
 def send_messages
   User.find_each do |user|
     if user.message_on == Date.today
@@ -37,3 +33,7 @@ def setup_database
     password: params['password']
   )
 end
+
+setup_database
+setup_twilio
+send_messages
