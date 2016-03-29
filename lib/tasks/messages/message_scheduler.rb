@@ -1,3 +1,7 @@
+require 'active_record'
+require 'pg'
+require 'twilio-ruby'
+
 def send_messages
   User.find_each do |user|
     if user.message_on == Date.today
