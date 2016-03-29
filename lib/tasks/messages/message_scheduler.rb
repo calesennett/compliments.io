@@ -1,6 +1,9 @@
 require 'active_record'
 require 'pg'
 require 'twilio-ruby'
+require 'iron_worker'
+require 'models/user.rb'
+require 'models/compliment.rb'
 
 def send_messages
   User.find_each do |user|
@@ -25,16 +28,16 @@ def random_compliment
 end
 
 def setup_twilio
-  @client = Twilio::REST::Client.new(params['twilio_sid'], params['twilio_auth_token'])
+  @client = Twilio::REST::Client.new(IronWorker.config['twilio_sid'], IronWorker.config['twilio_auth_token'])
 end
 
 def setup_database
   ActiveRecord::Base.establish_connection(
     adapter:  'postgresql',
-    host:     params['host'],
-    database: params['database'],
-    username: params['username'],
-    password: params['password']
+    host:     IronWorker.config['host'],
+    database: IronWorker.config['database'],
+    username: IronWorker.config['username'],
+    password: IronWorker.config['password']
   )
 end
 

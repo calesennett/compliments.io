@@ -3,6 +3,7 @@ runtime "ruby"
 gem "pg"
 gem "activerecord"
 gem "twilio-ruby"
+gem "iron_worker"
 
 exec "message_scheduler.rb"
 
