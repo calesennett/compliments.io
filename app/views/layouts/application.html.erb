@@ -9,12 +9,11 @@
 
     <link rel="stylesheet" href="https://npmcdn.com/tachyons@4.0.0-beta.12/css/tachyons.min.css">
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
-  <body class="bg-near-white">
-    <%= yield %>
-
+  <body class="sans-serif bg-near-white">
     <script id="digits-sdk" src="https://cdn.digits.com/1/sdk.js" async></script>
-    <%= javascript_include_tag 'application' %>
+    <%= yield %>
   </body>
 </html>
