@@ -21,9 +21,18 @@ def send_message(user)
     to: user.phone_number,
     body: @compliment.body
   })
-    user.message_on += 1.day
-    user.save!
+    advance_message_date(user)
   end
+end
+
+def advance_message_date(user)
+  case user.frequency
+  when "daily";   user.message_on += 1.day
+  when "weekly";  user.message_on += 1.week
+  when "monthly"; user.message_on += 1.month
+  end
+
+  user.save!
 end
 
 def random_compliment
