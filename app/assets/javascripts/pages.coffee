@@ -10,19 +10,13 @@ $ ->
   onLogin = (loginResponse) ->
     oAuthHeaders = parseOAuthHeaders(loginResponse.oauth_echo_headers)
     setDigitsButton 'Signing In…'
-    $.ajax
-      type: 'POST'
+    $.post
       url: '/digits'
       data: oAuthHeaders
-      success: onDigitsSuccess
     return
 
   onLoginFailure = (loginResponse) ->
     setDigitsButton 'Sign Up with Phone'
-    return
-
-  onDigitsSuccess = (response) ->
-    setDigitsNumber response.phoneNumber
     return
 
   parseOAuthHeaders = (oAuthEchoHeaders) ->
@@ -38,10 +32,6 @@ $ ->
     return
 
   # Set the Digits phone number (and disable the button).
-
-  setDigitsNumber = (phoneNumber) ->
-    $('#login').html("&#10003; You are awesome.")
-    return
 
   $('#digits-sdk').load ->
     Digits.init(consumerKey: 'Jbn2aZGaiEUmyqkl8pwNHDsuE')

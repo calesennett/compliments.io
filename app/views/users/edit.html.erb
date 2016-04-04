@@ -1,0 +1,10 @@
+<div class="ph6-ns ph3 pv3 pv6-ns">
+  <h1 class="f-subheadline-ns f1 dark-gray">Set your preferences</h1>
+  <%= form_for @user, method: :put do |f| %>
+    <p class="b f4 mv1">Message frequency:</p>
+    <%= f.radio_button :frequency, "daily" %><p class="f3 mv1 pv0 dib ml2">Daily</p></br>
+    <%= f.radio_button :frequency, "weekly" %><p class="f3 mv1 pv0 dib ml2">Weekly</p></br>
+    <%= f.radio_button :frequency, "monthly" %><p class="f3 mv1 pv0 dib ml2">Monthly</p>
+    <%= f.submit 'Save', class: 'mv4 db bn link dim ph4 pv3 ttu tracked white bg-near-black' %>
+  <% end %>
+</div>
