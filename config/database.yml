@@ -4,7 +4,7 @@ default: &default
   timeout: 5000
   host: db
   username: postgres
-  password: ENV['POSTGRES_PASSWORD']
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
 
 development:
   <<: *default
