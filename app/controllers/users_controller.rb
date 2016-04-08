@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
     def authenticate_user
       @user = User.find(params[:id])
-      return redirect_to root_path unless session[:digits_id] == @user.digits_id
+      return redirect_to root_path, notice: 'Please login first.' unless session[:digits_id] == @user.digits_id
     end
 
     def user_params
